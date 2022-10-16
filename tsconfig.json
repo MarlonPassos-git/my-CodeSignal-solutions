@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "src/*": [
+        "src/*"
+      ],
+      "tests/*": [
+        "__tests__/*"
+      ]
+    },
+    "target": "es6",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "inlineSourceMap": false,
+    "outDir": "dist",
+    "lib": [
+      "es6",
+      "dom",
+      "esnext",
+      "esnext.asynciterable"
+    ],
+    "typeRoots": [
+      "node_modules/@types",
+      "src/typings"
+    ]
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "useBabel": true,
+    "useCache": true,
+    "useTranspileModule": true
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "./node_modules/*"
+  ]
+}
