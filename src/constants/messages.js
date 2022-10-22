@@ -1,0 +1,1 @@
+export const CANNOT_FIND_CSS_ELEMENT = 'Não foi possível encontrar o elemento CSS '
