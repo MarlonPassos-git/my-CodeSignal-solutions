@@ -5,20 +5,40 @@ function solution(
   weight2: number,
   maxW: number
 ): number {
-  const euPossoLevarDoisItem = (weight1 + weight2) < maxW
+  const euPossoLevarDoisItem = (weight1 + weight2) <= maxW
 
-  if (euPossoLevarDoisItem) { 
+  if (euPossoLevarDoisItem) {
     return value1 + value2
   }
 
-  const primeiroCustaMais = value1 >= value2
-  
-  if (primeiroCustaMais) { 
-    const ConsigoCarregar = value1 <= maxW
+  const lista = [
+    {
+      value: value1,
+      weight: weight1
+    },
+    {
+      value: value2,
+      weight: weight2
+    }
+  ]
 
-    if (ConsigoCarregar) return value1 
-  }
-  return value2
+  const valoresQueEuConsigoCarregar = lista.filter(({ weight }) => weight <= maxW)
+  const naoConsigoCarregarNenhum = valoresQueEuConsigoCarregar.length === 0
 
+  if (naoConsigoCarregarNenhum) return 0
+
+  return valoresQueEuConsigoCarregar.reduce((maisCaro, { value }) => { 
+    const currentEmaior = value > maisCaro
+
+    return currentEmaior ? value : maisCaro
+  }, -Infinity)
+   
 }
 
+solution(
+  15,
+  2,
+  20,
+  3,
+  2
+)
